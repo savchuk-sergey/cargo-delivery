@@ -2,10 +2,9 @@ package ru.liga.Truck.service;
 
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Component;
-import ru.liga.Truck.exception.TruckNumberExceededException;
-import ru.liga.command.CargoProcessor;
-import ru.liga.Truck.interfaces.TruckLoader;
 import ru.liga.Cargo.model.Cargo;
+import ru.liga.Truck.exception.TruckNumberExceededException;
+import ru.liga.Truck.interfaces.TruckLoader;
 import ru.liga.Truck.model.Truck;
 
 import java.util.ArrayList;
@@ -16,7 +15,7 @@ import java.util.List;
  */
 @Component
 @Log4j2
-public class BaseTruckLoader implements TruckLoader {
+public class SimpleTruckLoader implements TruckLoader {
     /**
      * Размещает груз в грузовике.
      *
@@ -44,7 +43,6 @@ public class BaseTruckLoader implements TruckLoader {
 
             trucks.add(truck);
         }
-
 
         return trucks;
     }

@@ -1,6 +1,5 @@
 package ru.liga.Truck.service;
 
-import lombok.Data;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Component;
 import ru.liga.Truck.interfaces.TruckPark;
@@ -33,21 +32,8 @@ public class BaseTruckPark implements TruckPark {
         }
     }
 
-    public List<String> toListString() {
-        log.trace("toListString");
-        return trucks.stream()
-                .map(Truck::toString)
-                .toList();
-    }
-
     @Override
-    public void setTrucks(List<Truck> trucks) {
-        log.trace("setTrucks - trucks: {}", trucks);
-        this.trucks.addAll(trucks);
-    }
-
-    @Override
-    public List<Truck> getAll() {
+    public List<Truck> getTrucks() {
         return trucks;
     }
 
