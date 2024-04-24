@@ -12,7 +12,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static java.lang.System.exit;
 import static ru.liga.constants.Constants.*;
 
 @Log4j2
@@ -20,21 +19,21 @@ import static ru.liga.constants.Constants.*;
 public class CargoService {
     private final TruckLoader simpleTruckLoader;
     private final TruckLoader sortTruckLoader;
-    private final CargoReader txtCargoReader;
+    private final CargoReader stringCargoReader;
 
 
     @Autowired
-    public CargoService(TruckLoader simpleTruckLoader, TruckLoader sortTruckLoader, CargoReader txtCargoReader) {
+    public CargoService(TruckLoader simpleTruckLoader, TruckLoader sortTruckLoader, CargoReader stringCargoReader) {
         log.trace("initialization");
         this.simpleTruckLoader = simpleTruckLoader;
         this.sortTruckLoader = sortTruckLoader;
-        this.txtCargoReader = txtCargoReader;
+        this.stringCargoReader = stringCargoReader;
     }
 
     public List<Truck> processTxtToList(String rawCargos, int maxTruckNumber, boolean isSortAlgorithm) throws TruckNumberExceededException {
         log.trace("processTxtToList");
 
-        List<Cargo> cargos = txtCargoReader.read(rawCargos);
+        List<Cargo> cargos = stringCargoReader.read(rawCargos);
         List<Truck> trucks = new ArrayList<>();
 
         if (isSortAlgorithm) {
