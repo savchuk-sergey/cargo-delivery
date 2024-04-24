@@ -1,7 +1,9 @@
 target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
-!**/src/main/**/resources/application-bot.properties
+src/main/resources/application-bot.properties
+src/test/resources/data/
+src/main/resources/data/
 !**/src/test/**/target/
 
 ### IntelliJ IDEA ###
